@@ -1,11 +1,11 @@
+import java.util.Scanner;
+
 public class BestGymEver {
 
 
-
-
     public void mainProgram(){
-        CustomerData cd = new CustomerData();
-        System.out.println(cd.searchForCustomerByName("Bear"));
+        MemberData md = new MemberData();
+        Scanner input = new Scanner(System.in);
     }
 
     public static void main(String[] args) {
