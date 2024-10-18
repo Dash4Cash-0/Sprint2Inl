@@ -1,9 +1,11 @@
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.math.BigInteger;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
+import java.util.Locale;
 
 
 public class MemberData {
@@ -44,6 +46,8 @@ public class MemberData {
                 if(line.contains(input)){
                     date = br.readLine();
                     break;
+                } else {
+                    System.out.println("Not a member");
                 }
             }
         }catch (IOException e){
@@ -56,12 +60,14 @@ public class MemberData {
 
 
     public String searchForMemberByName(String name) {
+        String memberInfo = readFile(name);
 
-        return readFile(name);
+        return memberInfo.substring(12);
     }
 
     public String searchForMemberByPersonalNumber(String number){
+        String memberInfo = readFile(number);
 
-        return readFile(number);
+        return memberInfo.substring(0,10);
     }
 }
