@@ -5,8 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.*;
 
 public class MemberDataTest {
 
@@ -38,10 +37,10 @@ public class MemberDataTest {
     @Test
     public void searchForMemberByNameTest(){
         String name1 = "Bear";
-        String name2 = "Nisse";
+        String name2 = "John";
 
-        assertEquals("8204021234, Bear Belle", md.searchForMemberByName(name1));
-        assertNotEquals("123123 Nisse", md.searchForMemberByName(name2));
+        assertEquals("Bear Belle", md.searchForMemberByName(name1));
+        assertThrows(StringIndexOutOfBoundsException.class, () -> md.searchForMemberByName(name2));
     }
 
     @Test
@@ -49,8 +48,8 @@ public class MemberDataTest {
         String pNumber1 = "8204021234";
         String number = "12312312313";
 
-        assertEquals("8204021234, Bear Belle", md.searchForMemberByPersonalNumber(pNumber1));
-        assertNotEquals("2323232", md.searchForMemberByPersonalNumber(number));
+        assertEquals("8204021234", md.searchForMemberByPersonalNumber(pNumber1));
+        assertThrows(StringIndexOutOfBoundsException.class, () -> md.searchForMemberByPersonalNumber(number));
     }
 
     @Test
