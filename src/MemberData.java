@@ -2,14 +2,11 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.math.BigInteger;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
-import java.util.Locale;
 
 
 public class MemberData {
@@ -85,11 +82,9 @@ public class MemberData {
             }
             bw.write(person.getName() + ", ");
             bw.write(person.getPersonalNumber() + ", ");
-            bw.write(person.getTrainingDate().toString());
+            bw.write(person.getTrainingDate().toString() + "\n");
         }catch (IOException e){
             e.printStackTrace();
         }
     }
-
-
 }
